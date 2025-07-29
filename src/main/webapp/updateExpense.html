@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"],
+        input[type="datetime-local"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+        input[type="submit"]:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Update Expense</h2>
+    <form action="update" method="post">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required placeholder="Enter Expense ID to be updated">
+
+        <label for="remark">Remark:</label>
+        <input type="text" id="remark" name="remark" required placeholder="Enter Remark">
+
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" required placeholder="Enter Amount">
+
+        <label for="payment-mode">Payment Mode:</label>
+        <select type="text" id="payment-mode" name="payment_mode" required  >
+            <option value="cash">Cash</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="debit-card">Debit Card</option>
+            <option value="online">Online</option>
+        </select>
+
+
+
+        <label for="datetime">Date & Time:</label>
+        <input type="datetime-local" id="datetime" name="time" required>
+
+        <input type="submit" value="Update Expense">
+    </form>
+</div>
+
+
+</body>
+</html>
