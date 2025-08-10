@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register - Expense Management System</title>
+    <title>Login - Expense Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,14 +17,32 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            flex-direction: column;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 15px 0;
+            background-color: #6c757d;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+            color: white;
         }
 
         .container {
             background-color: #fff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 350px;
+            margin-top: 80px; /* to avoid overlap with navbar */
         }
 
         h2 {
@@ -62,26 +81,22 @@
             color: #ff0000;
             margin-top: 10px;
         }
-
-        .container .link {
-                    margin-top: 15px;
-                    display: block;
-                    font-size: 13px;
-                    color: #2980b9;
-                    text-decoration: none;
-                }
     </style>
-
 </head>
-<div class="container">
-    <h2>Login</h2>
-    <form id="loginForm"  action="login" method="post">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="submit" value="Login">
-    </form>
-    <div class="message" id="message"></div>
-    <a class="link" href="register.jsp">New user? Register your account</a>
-</div>
+<body>
+    <div class="navbar">
+        <h1>Expense Management System</h1>
+    </div>
+
+    <div class="container">
+        <h2>Login to Your Account</h2>
+        <form id="loginForm" action="login" method="post">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <div class="message" id="message"></div>
+        <a class="link" href="register.jsp">New user? Register your account</a>
+    </div>
 </body>
 </html>

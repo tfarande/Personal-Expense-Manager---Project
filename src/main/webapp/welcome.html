@@ -1,7 +1,3 @@
-<html>
-<body>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,122 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Management System</title>
     <style>
-
-
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://media.istockphoto.com/id/1129810557/photo/business-audits-using-a-calculator-financial-data-investment-fund-at-a-workplace-wealth.jpg?s=2048x2048&w=is&k=20&c=i10h78OJPEgAZuIVTWWpEG9C00DravPmWNVodZ2hNmk='); /* Specify the path to your background image */
+            background-image: url('https://media.istockphoto.com/id/1129810557/photo/business-audits-using-a-calculator-financial-data-investment-fund-at-a-workplace-wealth.jpg?s=2048x2048&w=is&k=20&c=i10h78OJPEgAZuIVTWWpEG9C00DravPmWNVodZ2hNmk=');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
+
+        /* Overlay for background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #333;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .navbar button {
+            background-color: #dc3545;
+            color: white;
             border: none;
-            border-radius: 5px;
+            padding: 8px 16px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s;
-            position: absolute;
-            top: 20px;
-            right: 20px;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        .navbar button:hover {
+            background-color: #b02a37;
         }
+
         .container {
-            max-width: 800px;
-            margin: 100px auto;
+            max-width: 700px;
+            margin: 80px auto;
             text-align: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: black
 
+        h1 {
+            color: #2d3436;
+            margin-bottom: 10px;
         }
+
+        p {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .operations {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
         .btn {
-            display: inline-block;
-            padding: 10px 20px;
+            padding: 10px 25px;
             background-color: #007bff;
-            color: #fff;
+            color: white;
+            border: none;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
+            width: 60%;
         }
+
         .btn:hover {
             background-color: #0056b3;
         }
+
     </style>
 </head>
 <body>
-<div class="container">
-    <header >
-        <h1 style="text-align-all: center;color: white;background-color: #4CAF50">Welcome to Expense Management System</h1>
-        <p >An efficient way to manage your expenses.</p>
 
-    </header>
-
-
-
-    <a  href="addExpense.html"  class="btn" >Add Expense</a>
-    <br>
-    <br>
-    <a href="expense" class="btn">View Expenses</a>
-    <br>
-    <br>
-    <a href="deleteExpense.html" class="btn">Delete Expense</a>
-
-    <br>
-    <br>
-
-    <a href="updateExpense.html"  class="btn">Update Expense</a>
-
-
-
-    <form id="logoutForm" action="logout" method="post">
+<!-- Navbar -->
+<div class="navbar">
+    <h2>Expense Manager</h2>
+    <form id="logoutForm" action="logout" method="post" style="margin: 0;">
         <button type="submit">Logout</button>
     </form>
-
-    <!-- Optional JavaScript for confirmation -->
-    <!-- <script>
-         // Confirmation message before logout
-         document.getElementById('logoutForm').addEventListener('submit', function(event) {
-             var confirmation = confirm("Are you sure you want to logout?");
-             if (!confirmation) {
-                 event.preventDefault(); // Prevent form submission
-             }
-         });
-     </script>-->
-    <script>
-
-
-        // Confirmation message before logout
-        document.getElementById('logoutForm').addEventListener('submit', function(event) {
-            var confirmation = confirm("Are you sure you want to logout?");
-            if (!confirmation) {
-                event.preventDefault(); // Prevent form submission
-            } else {
-                alert("Logout successful."); // Display success message
-            }
-        });
-    </script>
-
-
-
-
 </div>
-</body>
-</html>
 
+<!-- Main container -->
+<div class="container">
+    <h1>Welcome to Expense Management System</h1>
+    <p>Track and manage your expenses effortlessly.</p>
 
+    <div class="operations">
+        <a href="addExpense.html" class="btn">Add Expense</a>
+        <a href="expense" class="btn">View Expenses</a>
+        <a href="deleteExpense.html" class="btn">Delete Expense</a>
+        <a href="updateExpense.html" class="btn">Update Expense</a>
+    </div>
+</div>
 
-
+<script>
+    document.getElementById('logoutForm').addEventListener('submit', function(event) {
+        var confirmation = confirm("Are you sure you want to logout?");
+        if (!confirmation) {
+            event.preventDefault();
+        } else {
+            alert("Logout successful.");
+        }
+    });
+</script>
 
 </body>
 </html>

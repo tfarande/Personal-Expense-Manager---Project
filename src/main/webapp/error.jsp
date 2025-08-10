@@ -6,7 +6,7 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to right, #ff4e50, #f9d423);
+            background: #d5f2f5;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -46,22 +46,15 @@
         .error-box a:hover {
             background-color: #1e6aa9;
         }
-
-        .icon {
-            font-size: 50px;
-            color: #e74c3c;
-            margin-bottom: 10px;
-        }
     </style>
 </head>
 <body>
     <div class="error-box">
-        <div class="icon">⚠️</div>
         <h2>Error Occurred</h2>
         <div class="error-message">
             <%= request.getAttribute("errorMessage") %>
         </div>
-        <a href="login.jsp">Go back to Login</a>
+        <a href="index.jsp">Go back to Login</a>
     </div>
 </body>
 </html>

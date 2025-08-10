@@ -1,7 +1,7 @@
 <%@ page contentType="text/html" %>
 <html>
 <head>
-    <title>User Registration - SecureBank</title>
+    <title>User Registration - ExpenseManager</title>
     <style>
         body {
             margin: 0;
@@ -69,7 +69,7 @@
 </head>
 <body>
     <div class="register-box">
-        <h2>📝 User Registration</h2>
+        <h2>User Registration</h2>
         <form action="register" method="post">
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="email" name="email" placeholder="Email Address" required>
