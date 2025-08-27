@@ -1,50 +1,59 @@
 <%@ page isErrorPage="true" %>
 <html>
 <head>
-    <title>Error - ExpenseManager</title>
+    <title>Error - Expense Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: #d5f2f5;
-            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            flex-direction: column;
         }
 
+        /* Container with thin glass background */
         .error-box {
-            background-color: white;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-            width: 400px;
+            width: 100%;
+            max-width: 420px;
+            padding: 25px;
             text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            backdrop-filter: blur(8px);
         }
 
-        .error-box h2 {
-            color: #e74c3c;
-            margin-bottom: 20px;
+        h2 {
+            margin-bottom: 15px;
+            color: #ff4c4c;
+            font-size: 24px;
         }
 
         .error-message {
-            color: #c0392b;
+            color: #ffeaea;
             font-size: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
-        .error-box a {
+        a {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #2980b9;
+            padding: 12px 25px;
+            background: #007bff;
             color: white;
             text-decoration: none;
-            border-radius: 6px;
-            transition: background-color 0.3s ease;
+            border-radius: 25px;
+            font-size: 15px;
+            transition: 0.3s;
         }
 
-        .error-box a:hover {
-            background-color: #1e6aa9;
+        a:hover {
+            background: #0056b3;
         }
     </style>
 </head>
@@ -54,7 +63,7 @@
         <div class="error-message">
             <%= request.getAttribute("errorMessage") %>
         </div>
-        <a href="index.jsp">Go back to Login</a>
+        <a href="index.jsp">Go Back to Login</a>
     </div>
 </body>
 </html>

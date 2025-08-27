@@ -2,59 +2,149 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update</title>
+    <title>Update Expense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* General styles with SAME background image as Delete page */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-image: url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
-        .container {
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+        /* Navbar styling - Black background */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 25px;
+            background: black;
+            color: white;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-buttons a {
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-buttons a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            color: black;
+        }
+
+        /* Container styling */
+         .container {
             max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 70px auto;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(8px);
+            color: #fff;
         }
+
         h2 {
             text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
         }
-        form {
-            margin-top: 20px;
-        }
+
         label {
             display: block;
             margin-bottom: 8px;
+            font-weight: bold;
+            color: #fff;
         }
+
+        /* Form elements */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #fff;
+        }
+
         input[type="text"],
         input[type="datetime-local"],
         select {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 12px;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border 0.3s;
         }
+
+        input[type="text"]:focus,
+        input[type="datetime-local"]:focus,
+        select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        /* Button */
         input[type="submit"] {
-            background-color: #e2e2e2;
-            color: black;
-            padding: 12px 20px;
+            background-color: #5dade2;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
             border: none;
-            border-radius: 4px;
+            border-radius: 25px;
             cursor: pointer;
             width: 100%;
-            opacity: 0.9;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
         }
+
         input[type="submit"]:hover {
-            opacity: 1;
-            background-color: #0056b3;
+            background-color: #3498db;
         }
     </style>
 </head>
 <body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h1>Expense Manager</h1>
+    <div class="nav-buttons">
+        <a href="welcome.html">Home</a>
+        <a href="logout">Logout</a>
+    </div>
+</div>
+
+<!-- Update Expense Form -->
 <div class="container">
     <h2>Update Expense</h2>
     <form action="update" method="post">
@@ -68,14 +158,12 @@
         <input type="text" id="amount" name="amount" required placeholder="Enter Amount">
 
         <label for="payment-mode">Payment Mode:</label>
-        <select type="text" id="payment-mode" name="payment_mode" required  >
+        <select id="payment-mode" name="payment_mode" required>
             <option value="cash">Cash</option>
             <option value="credit-card">Credit Card</option>
             <option value="debit-card">Debit Card</option>
             <option value="online">Online</option>
         </select>
-
-
 
         <label for="datetime">Date & Time:</label>
         <input type="datetime-local" id="datetime" name="time" required>
@@ -83,7 +171,6 @@
         <input type="submit" value="Update Expense">
     </form>
 </div>
-
 
 </body>
 </html>

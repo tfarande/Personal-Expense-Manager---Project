@@ -5,82 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Expense</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+        /* Scoped Add Expense Page Styles */
+        body.add-expense-page {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
         }
 
-        .container {
+        body.add-expense-page::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+        /* Navbar styling */
+        .add-expense-page .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 25px;
+            background: black;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .add-expense-page .navbar h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .add-expense-page .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .add-expense-page .nav-buttons a {
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .add-expense-page .nav-buttons a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            color: black;
+        }
+
+        /* Form container */
+        .add-expense-page .container {
             max-width: 600px;
-            margin: 50px auto;
-            background-color: #ffffff;
+            margin: 70px auto;
+            background: rgba(255, 255, 255, 0.15);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(8px);
+            color: #fff;
         }
 
-        h2 {
+        .add-expense-page h2 {
             text-align: center;
             margin-bottom: 30px;
-            color: #333;
+            color: #fff;
         }
 
-        form {
-            margin-top: 20px;
-        }
-
-        label {
+        .add-expense-page label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: #444;
+            color: #fff;
         }
 
-        input[type="text"],
-        input[type="datetime-local"],
-        select {
+        .add-expense-page input[type="text"],
+        .add-expense-page input[type="datetime-local"],
+        .add-expense-page select {
             width: 100%;
             padding: 12px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+            border: none;
+            border-radius: 25px;
             box-sizing: border-box;
             font-size: 15px;
-            transition: border 0.3s;
-        }
-
-        input[type="text"]:focus,
-        input[type="datetime-local"]:focus,
-        select:focus {
-            border-color: #007bff;
+            background: rgba(255, 255, 255, 0.92);
+            color: #333;
             outline: none;
         }
 
-        input[type="submit"] {
-            background-color: #e2e2e2;
-            color: black;
+        .add-expense-page input[type="text"]:focus,
+        .add-expense-page input[type="datetime-local"]:focus,
+        .add-expense-page select:focus {
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+        }
+
+        .add-expense-page input[type="submit"] {
+            background-color: #5dade2;
+            color: white;
             padding: 12px;
             font-size: 16px;
             border: none;
-            border-radius: 6px;
+            border-radius: 25px;
             cursor: pointer;
             width: 100%;
             transition: background-color 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
         }
 
-        input[type="submit"]:hover {
-            background-color: #0056b3;
+        .add-expense-page input[type="submit"]:hover {
+            background-color: #3498db;
         }
     </style>
-
 </head>
-<body>
+<body class="add-expense-page">
+
+<!-- Navbar -->
+<div class="navbar">
+    <h1>Expense Manager</h1>
+    <div class="nav-buttons">
+        <a href="welcome.html">Home</a>
+        <a href="logout">Logout</a>
+    </div>
+</div>
+
+<!-- Add Expense Form -->
 <div class="container">
     <h2>Add Expense</h2>
     <form action="expense" method="post">
-
         <label for="remark">Remark:</label>
         <input type="text" id="remark" name="remark" required placeholder="Enter Expense Remark">
 
@@ -88,20 +150,19 @@
         <input type="text" id="amount" name="amount" required placeholder="Enter Amount">
 
         <label for="payment-mode">Payment Mode:</label>
-        <select type="text" id="payment-mode" name="payment_mode" required placeholder="Select Payment Mode">
+        <select id="payment-mode" name="payment_mode" required>
             <option value="cash">Cash</option>
             <option value="credit-card">Credit Card</option>
             <option value="debit-card">Debit Card</option>
             <option value="online">Online</option>
         </select>
 
-
-
         <label for="datetime">Date & Time:</label>
-        <input type="datetime-local" id="datetime" name="time" required placeholder="LocalDateTime">
+        <input type="datetime-local" id="datetime" name="time" required>
 
         <input type="submit" value="Add Expense">
     </form>
 </div>
+
 </body>
 </html>

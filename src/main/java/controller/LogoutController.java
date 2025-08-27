@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 
 public class LogoutController extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         session.invalidate();
         resp.setContentType("text/html");
